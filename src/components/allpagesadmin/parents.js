@@ -205,7 +205,7 @@ export default function ParentsTablePage() {
           label={value?.length ?? "Not Assigned"}
           size="large"
           variant="outlined"
-          color={value.length > 0 ? "primary" : "error"}
+          color={value?.length > 0 ? "primary" : "error"}
         />
       ),
     },

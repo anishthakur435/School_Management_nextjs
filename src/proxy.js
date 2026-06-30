@@ -55,19 +55,6 @@ export async function proxy(request) {
   }
 
 
-  // 
-//   const roleRedirects = {
-//   "/dashboard/admin": "ADMIN",
-//   "/dashboard/teacher": "TEACHER",
-//   "/dashboard/student": "STUDENT",
-//   "/dashboard/librarian": "LIBRARIAN",
-//   "/dashboard/parents": "PARENTS",
-// };
-
-// if (roleRedirects[pathname] === userRole) {
-//   return NextResponse.redirect(new URL("/dashboard", request.url));
-// }
-
   ///////////
   if (pathname.startsWith("/dashboard/admin") && userRole !== "ADMIN") {
     return NextResponse.redirect(new URL("/dashboard", request.url));
