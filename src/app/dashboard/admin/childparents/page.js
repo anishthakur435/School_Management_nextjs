@@ -40,7 +40,6 @@ export default function AssignParentsStudent() {
   });
 
   const onSubmit = (formData) => {
-    // console.log("formData", formData);
     try {
       const existingStudent = parentChildData.find(
         (record) => String(record.studentId) === String(formData.studentId),
@@ -105,8 +104,6 @@ export default function AssignParentsStudent() {
         return user;
       });
 
-      // console.log("updatedUserData", updatedUserData);
-      // console.log("newAssignment", newAssignment);
 
       setParentChildData([...parentChildData, newAssignment]);
       setUserData(updatedUserData);
@@ -115,7 +112,6 @@ export default function AssignParentsStudent() {
       reset();
       router.push("/dashboard/admin");
     } catch (error) {
-      console.error(error);
       toastMessage("Something went wrong.", "error");
     }
   };

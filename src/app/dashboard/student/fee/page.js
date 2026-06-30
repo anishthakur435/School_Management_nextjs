@@ -64,7 +64,7 @@ export default function FeesCardPage() {
   const currentDate = new Date();
   const currentMonthDisplay = currentDate.toLocaleString("default", {
     month: "long",
-    year:"numeric"
+    year: "numeric",
   });
   const { start, end } = getBillingCycle(currentDate, feeType);
   const startMonth = start.toLocaleString("default", { month: "long" });
@@ -100,9 +100,9 @@ export default function FeesCardPage() {
         return;
       }
 
-    //   const { start, end } = getBillingCycle(currentDate, feeType);
-    //   const dueDateMonth = end.toLocaleString("default", { month: "long" });
-    //   const dueDateYear = end.getFullYear();
+      //   const { start, end } = getBillingCycle(currentDate, feeType);
+      //   const dueDateMonth = end.toLocaleString("default", { month: "long" });
+      //   const dueDateYear = end.getFullYear();
       const getFullDueDate = `${dueDateMonth} ${dueDateYear}`;
       const generatedReceiptNo = `REC-${Date.now().toString().slice(-6)}`;
       const feeId = Date.now();
@@ -137,14 +137,11 @@ export default function FeesCardPage() {
         status: "Paid",
       };
 
-      // console.log("updatedUserData", updatedUserData);
-      // console.log("newFeeRecord", newFeeRecord);
-
-      //   setUserData(updatedUserData);
-      //   setFeeRecords([newFeeRecord, ...feeRecords]);
+      setUserData(updatedUserData);
+      setFeeRecords([newFeeRecord, ...feeRecords]);
 
       toastMessage("Fee paid successfully", "success");
-      //   router.replace("/dashboard/student");
+      router.replace("/dashboard/student");
     } catch (error) {
       console.error(error);
       toastMessage("Failed to process payment.", "error");
@@ -163,7 +160,8 @@ export default function FeesCardPage() {
               Fee Payment
             </Typography>
             <Typography variant="body2" className="text-gray-500 mt-1">
-              Billing Cycle: {startMonth} {startYear} -{dueDateMonth} {dueDateYear}
+              Billing Cycle: {startMonth} {startYear} -{dueDateMonth}{" "}
+              {dueDateYear}
             </Typography>
           </Box>
           <Chip

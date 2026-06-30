@@ -31,8 +31,7 @@ export default function StudentGrading() {
   const myGrades = grades.filter(
     (grade) => grade.teacherName == findTeacher?.name,
   );
-  // console.log("myGrades", myGrades);
-
+ 
   //
   const { control, watch, setValue } = useForm({
     mode: "onChange",

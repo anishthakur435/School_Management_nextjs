@@ -150,7 +150,6 @@ export default function AddFeePage() {
         month: "long",
       });
       const paymentYear = paymentDateObj.getFullYear();
-      // console.log("paymentDateObj", paymentDateObj);
 
       //
       const isDuplicateFee = feeRecords.some((record) => {
@@ -216,8 +215,6 @@ export default function AddFeePage() {
         dueDate: getFullDueDate,
         status: data.status,
       };
-      // console.log("newFeeRecord", newFeeRecord);
-      // console.log("newUserDetails", newUserDetails);
 
       setUserData(newUserDetails);
       setFeeRecords([newFeeRecord, ...feeRecords]);
@@ -225,7 +222,6 @@ export default function AddFeePage() {
       // reset();
       // router.replace("/dashboard/admin/fees");
     } catch (error) {
-      console.error(error);
       toastMessage("Failed to add fee", "error");
     }
   };

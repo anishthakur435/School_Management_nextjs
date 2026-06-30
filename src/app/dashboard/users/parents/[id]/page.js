@@ -32,7 +32,6 @@ export default function StudentDetails() {
   const [parentChildData] = useLocalStorage("parentChildData", []);
   const findParents = userData.find((user) => String(user.id) === String(id));
 
-  // console.log("findParents", findParents);
 
   if (!session) return null;
 
@@ -43,7 +42,6 @@ export default function StudentDetails() {
   const parentsName =
     findParents.name || `${findParents.firstname} ${findParents.lastname}`;
   const parentEmail = findParents.email;
-  // console.log("parentsName", parentsName);
 
   //
   const myChildren = userData?.filter(
@@ -51,7 +49,6 @@ export default function StudentDetails() {
       parentChild.parentName === parentsName ||
       parentChild.parentEmail === parentEmail,
   );
-  // console.log("myChildren", myChildren);
 
   const myChildrenColoumn = [
     {

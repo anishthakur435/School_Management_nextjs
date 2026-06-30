@@ -22,7 +22,6 @@ export default function StudentDetails() {
   const { data: session } = useSession();
   const router = useRouter();
   const { id } = useParams();
-  // console.log("studentId", id);
 
   const [userData] = useLocalStorage("userData", []);
   const [assignedCourses] = useLocalStorage("assignedCourses", []);
@@ -33,12 +32,11 @@ export default function StudentDetails() {
   const findUserStudent = classStudent.find(
     (user) => String(user.id) === String(id),
   );
-  // console.log("findUserStudent", findUserStudent);
   // const id = "23443";
 
-  const findStudent = userData.find((user) => String(user.name) === String(findUserStudent.student));
-
-  // console.log("findStudent", findStudent);
+  const findStudent = userData.find(
+    (user) => String(user.name) === String(findUserStudent.student),
+  );
 
   if (!session) return null;
 
@@ -49,28 +47,23 @@ export default function StudentDetails() {
   const studentName =
     findStudent.name || `${findStudent.firstname} ${findStudent.lastname}`;
   const studentEmail = findStudent.email;
-  // console.log("studentName", studentName);
 
   //
   const myEnrollment = classStudent?.find(
     (cs) => cs.student === studentName || cs.studentEmail === studentEmail,
   );
-  //   console.log("myEnrollment", myEnrollment);
 
   const myClassName = myEnrollment?.classname;
   const myRollNo = myEnrollment?.rollno;
 
   const myCourses =
     assignedCourses?.filter((course) => course.classname === myClassName) || [];
-  //   console.log("myCourses", myCourses);
 
   const myGrades =
     grades?.filter((grade) => grade.student === studentName) || [];
-  // console.log("myGrades", myGrades);
 
   const myAttendance =
     attendance?.filter((att) => att.classname === myClassName) || [];
-  //   console.log("myAttendance", myAttendance);
 
   const structuralRecords = myAttendance.map((record) => {
     const isPresent = record.presentStudents?.includes(studentName) ?? false;
@@ -79,15 +72,12 @@ export default function StudentDetails() {
       personalStatus: isPresent ? "Present" : "Absent",
     };
   });
-  // console.log("structuralRecords", structuralRecords);
 
   const totalDays = structuralRecords.length;
-  //   console.log("totalDays", totalDays);
 
   const presentDays = structuralRecords.filter(
     (a) => a.personalStatus === "Present",
   ).length;
-  //   console.log("presentDays", presentDays);
   const daysAbsent = totalDays - presentDays;
   const personalAttendancePercentage =
     totalDays > 0 ? ((presentDays / totalDays) * 100).toFixed(0) : "100";

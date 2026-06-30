@@ -49,7 +49,6 @@ export default function GradesRemarks() {
     (course) => course.teacher == findTeacher?.name,
   );
 
-  // console.log("myAssignedClasses", myAssignedClasses);
 
   const myAssignedCourses = assignedCourses.filter(
     (course) => course.teacher == findTeacher?.name,

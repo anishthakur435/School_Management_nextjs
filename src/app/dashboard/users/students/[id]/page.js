@@ -30,8 +30,6 @@ export default function StudentDetails() {
 
   const findStudent = userData.find((user) => String(user.id) === String(id));
 
-  // console.log("findStudent", findStudent);
-
   if (!session) return null;
 
   if (!findStudent)
@@ -41,28 +39,23 @@ export default function StudentDetails() {
   const studentName =
     findStudent.name || `${findStudent.firstname} ${findStudent.lastname}`;
   const studentEmail = findStudent.email;
-  // console.log("studentName", studentName);
 
   //
   const myEnrollment = classStudent?.find(
     (cs) => cs.student === studentName || cs.studentEmail === studentEmail,
   );
-  //   console.log("myEnrollment", myEnrollment);
 
   const myClassName = myEnrollment?.classname;
   const myRollNo = myEnrollment?.rollno;
 
   const myCourses =
     assignedCourses?.filter((course) => course.classname === myClassName) || [];
-  //   console.log("myCourses", myCourses);
 
   const myGrades =
     grades?.filter((grade) => grade.student === studentName) || [];
-  // console.log("myGrades", myGrades);
 
   const myAttendance =
     attendance?.filter((att) => att.classname === myClassName) || [];
-  //   console.log("myAttendance", myAttendance);
 
   const structuralRecords = myAttendance.map((record) => {
     const isPresent = record.presentStudents?.includes(studentName) ?? false;
@@ -71,15 +64,12 @@ export default function StudentDetails() {
       personalStatus: isPresent ? "Present" : "Absent",
     };
   });
-  //   console.log("structuralRecords", structuralRecords);
 
   const totalDays = structuralRecords.length;
-  //   console.log("totalDays", totalDays);
 
   const presentDays = structuralRecords.filter(
     (a) => a.personalStatus === "Present",
   ).length;
-  //   console.log("presentDays", presentDays);
   const daysAbsent = totalDays - presentDays;
   const personalAttendancePercentage =
     totalDays > 0 ? ((presentDays / totalDays) * 100).toFixed(0) : "100";
@@ -319,7 +309,10 @@ export default function StudentDetails() {
         {/* attendance */}
         <Box className="rounded-2xl border-2  border-[#eff6ff]/90 overflow-hidden">
           <Box className="px-6 py-5 border-b border-gray-100 bg-[#eff6ff]">
-            <Typography variant="h6" className="font-bold text-gray-800 px-2 pb-4">
+            <Typography
+              variant="h6"
+              className="font-bold text-gray-800 px-2 pb-4"
+            >
               Daily Attendance
             </Typography>
 

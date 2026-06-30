@@ -64,13 +64,13 @@ export default function FeeStructurePage() {
         monthly: Number((annualFee / 12).toFixed(2)),
       };
 
-      // console.log("newFeeStructure", newFeeStructure);
+
       setFeeStructure([newFeeStructure, ...feeStructure]);
       toastMessage("Fee structure added successfully!", "success");
       reset();
       router.push("/dashboard/admin/fees");
     } catch (error) {
-      console.error(error);
+
       toastMessage("Failed to add fee structure", "error");
     }
   };

@@ -30,8 +30,6 @@ export default function TeacherDetails() {
 
   const findTeacher = userData.find((user) => String(user.id) === String(id));
 
-  console.log("findTeacher", findTeacher);
-
   if (!session) return null;
 
   if (!findTeacher)
@@ -41,24 +39,19 @@ export default function TeacherDetails() {
   const teacherName =
     findTeacher.name || `${findTeacher.firstname} ${findTeacher.lastname}`;
   const teacherEmail = findTeacher.email;
-  // console.log("teacherName", teacherName);
   const myClassName = findTeacher.classname;
-  // console.log("myClassName", myClassName);
 
   const myStudents = classStudent.filter(
     (student) => String(student.teacher) === String(findTeacher?.name),
   );
-  // console.log("myStudents", myStudents);
 
   const findStudent = classStudent.filter(
     (student) => String(student.teacher) === String(findTeacher?.name),
   );
-  // console.log("findStudent", findStudent);
 
   const myAssignedCourse = assignedCourses.filter(
     (course) => course.teacher === teacherName,
   );
-  // console.log("myAssignedCourse", myAssignedCourse);
 
   //students teaching
   const teacherssColoum = [

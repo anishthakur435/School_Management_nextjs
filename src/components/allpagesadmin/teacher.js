@@ -42,7 +42,6 @@ export default function AllTeachers() {
   const parents = userData.filter(
     (user) => user.role.toUpperCase() === "PARENTS",
   );
-  // console.log(teachers);
 
   // Edit user
   const handleEdit = (editId) => {
@@ -107,36 +106,30 @@ export default function AllTeachers() {
           return user;
         });
       }
-      // console.log("updatedUsers", updatedUsers);
 
       const updatedClasses = createdClass.filter(
         (classes) => classes.teacher !== findUser?.name,
       );
-      // console.log("updatedClasses", updatedClasses);
 
       const updatedAssignment = assignedCourses.filter(
         (course) => course.teacher !== findUser?.name,
       );
-      // console.log("updatedAssignment",updatedAssignment˝);
 
       const updatedClassStudent = classStudent.filter(
         (existing) => existing.student !== findUser?.name,
       );
-      // console.log("updatedClassStudent", updatedClassStudent);
 
       const updatedGrades = grades.filter(
         (grade) =>
           grade.teacherName !== findUser?.name &&
           grade.student !== findUser?.name,
       );
-      // console.log("updatedGrades",updatedGrades);
 
       const updatedParentChildData = parentChildData.filter(
         (record) =>
           String(record.parentId) !== String(deleteId) &&
           String(record.studentId) !== String(deleteId),
       );
-      // console.log("updatedParentChildData", updatedParentChildData);
 
       setUserData(updatedUsers);
       setClassStudent(updatedClassStudent);

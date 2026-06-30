@@ -11,7 +11,7 @@ export default function ExamPage() {
 
   // //
   const handleDelete = (deleteExamId) => {
-    // console.log(deleteExamId);
+
 
     if (deleteExamId) {
       const updatedSchedule = examSchedule.filter(

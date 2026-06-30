@@ -89,7 +89,7 @@ export default function StudentAssignmentSubmit() {
         submittedAt: new Date().toISOString(),
       };
 
-      console.log("newSubmitAssignment,", newSubmitAssignment);
+
 
       setSubmitAssignment([newSubmitAssignment, ...(submitAssignment || [])]);
       toastMessage("Assignment submitted successfully!", "success");
@@ -97,7 +97,7 @@ export default function StudentAssignmentSubmit() {
 
       router.push("/dashboard/student/assignment");
     } catch (error) {
-      console.error(error);
+
       toastMessage("Failed to submit assignment", "error");
     }
   };

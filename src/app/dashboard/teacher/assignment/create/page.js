@@ -43,7 +43,6 @@ export default function TeacherAssignmentPage() {
   const findTeacherCourse = assignedCourses?.filter(
     (course) => course.teacher === findTeacher?.name,
   );
-  // console.log("findTeacherCourse", findTeacherCourse);
 
   //
   const { control, handleSubmit, reset, watch, setValue } = useForm({
@@ -60,12 +59,10 @@ export default function TeacherAssignmentPage() {
 
   //   get selected course from field
   const getCourseName = watch("course");
-  //   console.log("getCourseName", getCourseName);
 
   const subjectClass = findTeacherCourse?.filter(
     (course) => course.subjectname === getCourseName,
   );
-  // console.log("subjectClass", subjectClass);
 
   //
   const handleAssign = (data) => {
@@ -101,7 +98,6 @@ export default function TeacherAssignmentPage() {
           course.classname === data.classAssigned &&
           course.teacher === findTeacher?.name,
       );
-      // console.log("findAssignedCourses", findAssignedCourses);
       if (!findAssignedCourses) {
         return toastMessage(
           "You are not assigned to this subject/class.",
@@ -121,13 +117,11 @@ export default function TeacherAssignmentPage() {
         dueDate: data.dueDate,
         createdAt: new Date().toISOString(),
       };
-      // console.log("newAssignment", newAssignment);
       setAssignments([newAssignment, ...assignments]);
       toastMessage("Assignment created successfully!", "success");
       reset();
       router.push("/dashboard/teacher/assignment");
     } catch (error) {
-      console.error(error);
       toastMessage("Failed to create assignment", "error");
     }
   };
@@ -137,7 +131,6 @@ export default function TeacherAssignmentPage() {
   const uniqueClass = [
     ...new Set(subjectClass?.map((course) => course.classname)),
   ];
-  // console.log("uniqueClass", uniqueClass);
 
   const uniqueCourses = [
     ...new Set(findTeacherCourse?.map((course) => course.subjectname)),

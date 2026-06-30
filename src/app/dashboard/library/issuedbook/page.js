@@ -56,7 +56,7 @@ export default function IssuedBooks() {
     router.push("/dashboard/library");
   };
 
-  // console.log("requests", requests);
+
 
   const issuedBookDataColumn = [
     { id: "title", label: "Title" },

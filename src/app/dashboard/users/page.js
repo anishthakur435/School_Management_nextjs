@@ -4,11 +4,8 @@ import {
   Box,
   Button,
   Chip,
-  FormControl,
   IconButton,
-  MenuItem,
   Container,
-  Select,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -21,10 +18,11 @@ import useLocalStorage from "use-local-storage";
 import ReusableTable from "@/components/reusable/ReusableDataTable";
 import { useForm } from "react-hook-form";
 import FormField from "@/components/reusable/reusableForm";
-import Link from "next/link";
-import FormSelect from "@/components/reusable/ResuableSelect";
 
-export default function AllUsersContent() {
+import FormSelect from "@/components/reusable/ResuableSelect";
+import Link from "next/link";
+
+function AllUsersContent() {
   const [userData, setUserData] = useLocalStorage("userData", []);
   const [createdClass, setCreatedClass] = useLocalStorage("createdClass", []);
   const [classStudent, setClassStudent] = useLocalStorage("classStudent", []);
@@ -134,34 +132,28 @@ export default function AllUsersContent() {
           return user;
         });
       }
-      // console.log("updatedUsers", updatedUsers);
       const updatedClasses = createdClass.filter(
         (classes) => classes.teacher !== findUser?.name,
       );
-      // console.log("updatedClasses", updatedClasses);
       const updatedAssignment = assignedCourses.filter(
         (course) => course.teacher !== findUser?.name,
       );
-      // console.log("updatedAssignment",updatedAssignment˝);
 
       const updatedClassStudent = classStudent.filter(
         (existing) => existing.student !== findUser?.name,
       );
-      // console.log("updatedClassStudent", updatedClassStudent);
 
       const updatedGrades = grades.filter(
         (grade) =>
           grade.teacherName !== findUser?.name &&
           grade.student !== findUser?.name,
       );
-      // console.log("updatedGrades",updatedGrades);
 
       const updatedParentChildData = parentChildData.filter(
         (record) =>
           String(record.parentId) !== String(deleteId) &&
           String(record.studentId) !== String(deleteId),
       );
-      // console.log("updatedParentChildData", updatedParentChildData);
 
       setUserData(updatedUsers);
       setClassStudent(updatedClassStudent);
@@ -178,7 +170,6 @@ export default function AllUsersContent() {
 
   // filter  users
   const uniqueRoles = Array.from(new Set(userData.map((user) => user.role)));
-  // console.log("uniqueRoles", uniqueRoles);
 
   const { control, watch, setValue } = useForm({
     mode: "onChange",
@@ -296,6 +287,7 @@ export default function AllUsersContent() {
 
   return (
     <>
+      <Suspense></Suspense>
       <Container
         elevation={3}
         className="rounded-2xl p-4 h-full flex flex-col w-full"
@@ -329,29 +321,16 @@ export default function AllUsersContent() {
                 })),
               ]}
             />
-            {/* <FormControl>
-              <Select
-                id="user-filter"
-                value={selectedUser}
-                onChange={handleRoleChange}
-              >
-                <MenuItem value="all">All users</MenuItem>
-                {uniqueRoles.map((roleName) => (
-                  <MenuItem key={roleName} value={roleName.toLowerCase()}>
-                    {roleName}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl> */}
+
             <FormField
-            fullWidth
+              fullWidth
               name="usersName"
               label="Filter by Name"
               onChange={handleNameChange}
               control={control}
             />
             <Button
-            fullWidth
+              fullWidth
               variant="outlined"
               onClick={() => router.push("/dashboard/admin/adduser")}
             >
@@ -365,5 +344,13 @@ export default function AllUsersContent() {
         </Typography>
       </Container>
     </>
+  );
+}
+
+export default function AllUserContentData() {
+  return (
+    <Suspense>
+      <AllUsersContent />
+    </Suspense>
   );
 }

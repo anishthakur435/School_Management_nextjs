@@ -44,7 +44,6 @@ export default function ExamSchedule() {
   const uniqueClass = Array.from(
     new Set(classStudent.map((classDetails) => classDetails.classname)),
   );
-  // console.log("uniqueClass", uniqueClass);
   //
   const { control, handleSubmit, reset, watch, setValue } = useForm({
     resolver: yupResolver(schema),
@@ -59,22 +58,18 @@ export default function ExamSchedule() {
   });
 
   const selectedClassname = watch("classname");
-  // console.log("selectedClassname", selectedClassname);
 
   const findSubjectInClass = assignedCourses.filter(
     (subject) => subject.classname === selectedClassname,
   );
-  // console.log("findSubjectInClass", findSubjectInClass);
   //
 
   const createExamSchedule = (examScheduleDetails) => {
-    // console.log("examSchedule", examScheduleDetails);
     const duplicateSchedule = examSchedule.some(
       (schedule) =>
         schedule.classname === examScheduleDetails.classname &&
         schedule.subjectname === examScheduleDetails.subjectname,
     );
-    // console.log("duplicateSchedule", duplicateSchedule);
     if (duplicateSchedule) {
       toastMessage(
         "An exam schedule for this class and subject already exists",
@@ -100,7 +95,6 @@ export default function ExamSchedule() {
       id: Date.now(),
       ...examScheduleDetails,
     };
-    // console.log("newSchedule", newSchedule);
 
     setExamSchedule([newSchedule, ...examSchedule]);
     toastMessage("exam schedule created ", "success");
@@ -162,7 +156,6 @@ export default function ExamSchedule() {
               }))}
             />
 
-            
             {/* <FormField
               name="subjectname"
               label="Subject"

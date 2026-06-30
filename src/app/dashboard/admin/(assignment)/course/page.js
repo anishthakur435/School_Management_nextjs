@@ -49,12 +49,10 @@ export default function AssignCourse() {
           course.classname === data.classname &&
           course.subjectname === data.subjectname,
       );
-      // console.log("courseExists", courseExists);
 
       const findSubject = subject.find(
         (course) => course.subjectname === data.subjectname,
       );
-      // console.log("findSubject", findSubject);
 
       if (courseExists) {
         toastMessage(
@@ -79,14 +77,12 @@ export default function AssignCourse() {
         subjectcode: findSubject.subjectcode,
         assignedAt: new Date().toISOString(),
       };
-      // console.log("newAssignment", newAssignment);
 
       setAssignedCourses([newAssignment, ...assignedCourses]);
       toastMessage("Course assigned successfully!", "success");
-      // reset();
-      // router.push("/dashboard/admin");
+      reset();
+      router.push("/dashboard/admin");
     } catch (error) {
-      console.error(error);
       toastMessage("Failed to Assign Course", "error");
     }
   };
@@ -121,19 +117,6 @@ export default function AssignCourse() {
             }))}
           />
 
-          {/* <FormField
-            name="classname"
-            control={control}
-            label="Select Class"
-            select
-          >
-            {createdClass.map((existingClass) => (
-              <MenuItem key={existingClass.id} value={existingClass.classname}>
-                {existingClass.classname}
-              </MenuItem>
-            ))}
-          </FormField> */}
-
           <FormSelect
             name="subjectname"
             control={control}
@@ -143,20 +126,6 @@ export default function AssignCourse() {
               label: course.subjectname,
             }))}
           />
-
-          {/* <FormField
-            name="subjectname"
-            control={control}
-            label="Select Subject"
-            select
-          >
-            {subject.map((course) => (
-              <MenuItem key={course.id} value={course.subjectname}>
-                {course.subjectname}
-              </MenuItem>
-            ))}
-          </FormField> */}
-
           <FormSelect
             name="teacher"
             control={control}
@@ -166,19 +135,6 @@ export default function AssignCourse() {
               label: teacher.name,
             }))}
           />
-
-          {/* <FormField
-            name="teacher"
-            control={control}
-            label="Select Teacher"
-            select
-          >
-            {teachers.map((teacher) => (
-              <MenuItem key={teacher.id} value={teacher.name}>
-                {teacher.name}
-              </MenuItem>
-            ))}
-          </FormField> */}
 
           <Button
             variant="contained"

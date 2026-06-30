@@ -29,9 +29,7 @@ export default function ExamScheduleTeacher() {
     mySubjects.includes(exam.subjectname),
   );
 
-  // console.log("mySubjectExam", mySubjectExam);
-  // console.log("myEnrollment", myEnrollment);
-
+ 
   const myExam = myClass
     ? examSchedule?.filter((exam) => exam.classname === myClass.classname)
     : [];

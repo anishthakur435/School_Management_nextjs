@@ -8,7 +8,7 @@ import useLocalStorage from "use-local-storage";
 export default function MyExamSchedule() {
   const { data: session } = useSession();
 
-  // console.log(session);
+
   const [examSchedule] = useLocalStorage("examSchedule", []);
   const [classStudent] = useLocalStorage("classStudent", []);
 
@@ -20,7 +20,7 @@ export default function MyExamSchedule() {
   );
   const myClassName = myEnrollment?.classname || "Not Assigned";
   const myExam = examSchedule.filter((exam) => exam.classname === myClassName);
-  // console.log("myExam", myExam);
+
 
   //   ////
   const scheduleColumn = [
