@@ -32,8 +32,12 @@ import { toastMessage } from "../reusable/reusableToast";
 
 export default function ParentsTablePage() {
   const [userData, setUserData] = useLocalStorage("userData", []);
-  const [subject, setSubject] = useLocalStorage("subjects", []);
   const [createdClass, setCreatedClass] = useLocalStorage("createdClass", []);
+  const [grades, setGrades] = useLocalStorage("grades", []);
+  const [parentChildData, setParentChildData] = useLocalStorage(
+    "parentChildData",
+    [],
+  );
   const [classStudent, setClassStudent] = useLocalStorage("classStudent", []);
   const [assignedCourses, setAssignedCourses] = useLocalStorage(
     "assignedCourses",
@@ -42,14 +46,7 @@ export default function ParentsTablePage() {
   const { data: session } = useSession();
   const router = useRouter();
 
-  const admin = userData.filter((user) => user.role.toUpperCase() === "ADMIN");
-  const students = userData.filter(
-    (user) => user.role.toUpperCase() === "STUDENT",
-  );
-  const teachers = userData.filter(
-    (user) => user.role.toUpperCase() === "TEACHER",
-  );
-  const parents = userData.filter(
+  const parents = userData?.filter(
     (user) => user.role.toUpperCase() === "PARENTS",
   );
   //
@@ -60,7 +57,7 @@ export default function ParentsTablePage() {
 
   //// // Delete user
   const handleDelete = (deleteId) => {
-    const findUser = userData.find((user) => user.id == deleteId);
+    const findUser = userData?.find((user) => user.id == deleteId);
 
     if (deleteId == 1 || deleteId == 2 || deleteId == 3 || deleteId == 4) {
       toastMessage("Default User Cannot be deleted", "error");
@@ -85,7 +82,7 @@ export default function ParentsTablePage() {
 
       //
       if (findUser?.role?.toUpperCase() === "STUDENT" && findUser.parentId) {
-        updatedUsers = updatedUsers.map((user) => {
+        updatedUsers = updatedUsers?.map((user) => {
           if (String(user.id) === String(findUser.parentId)) {
             const updatedIds = (user.studentIds || []).filter(
               (id) => String(id) !== String(deleteId),
@@ -105,7 +102,7 @@ export default function ParentsTablePage() {
       }
       //
       if (findUser?.role?.toUpperCase() === "PARENTS") {
-        updatedUsers = updatedUsers.map((user) => {
+        updatedUsers = updatedUsers?.map((user) => {
           if (String(user.parentId) === String(deleteId)) {
             return {
               ...user,
