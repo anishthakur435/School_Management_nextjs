@@ -59,12 +59,18 @@ export const Sidenav = () => {
   const [openSubMenu, setOpenSubMenu] = useState(null);
   const [openSubMenu2, setOpenSubMenu2] = useState(null);
 
-  const handleSubMenuToggle = (menu) => {
+  const handleSubMenuToggle = (menu, path) => {
     setOpenSubMenu((prev) => (prev === menu ? null : menu));
+    if (path) {
+      router.push(path);
+    }
   };
 
-  const handleSubMenu2Toggle = (menu) => {
+  const handleSubMenu2Toggle = (menu, path) => {
     setOpenSubMenu2((prev) => (prev === menu ? null : menu));
+    if (path) {
+      router.push(path);
+    }
   };
 
   if (status === "loading" || !session) return null;
@@ -90,6 +96,22 @@ export const Sidenav = () => {
               "&:hover": {
                 backgroundColor: active ? "#eff6ff" : "rgba(0,0,0,0.04)",
               },
+            }),
+            label: () => ({
+              fontSize: "16px",
+              fontWeight: "500",
+              color: "#374151",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              alignItems: "center",
+            }),
+
+            icon: ({ active }) => ({
+              color: active ? "#2563eb" : "#4b5563",
+              fontSize: "20px",
+              minWidth: "20px",
+              marginRight: "12px",
             }),
           }}
         >
@@ -120,7 +142,7 @@ export const Sidenav = () => {
             <>
               <SubMenu
                 open={openSubMenu === "user"}
-                onOpenChange={() => handleSubMenuToggle("user")}
+                onClick={() => handleSubMenuToggle("user", "/dashboard/users")}
                 label="User Management"
                 icon={<PeopleAltOutlined sx={{ fontSize: 20 }} />}
               >
@@ -168,7 +190,9 @@ export const Sidenav = () => {
               {/* ACADEMICS */}
               <SubMenu
                 open={openSubMenu === "management"}
-                onOpenChange={() => handleSubMenuToggle("management")}
+                onClick={() =>
+                  handleSubMenuToggle("management", "/dashboard/admin/fees")
+                }
                 label="Academics"
                 icon={<LocalLibraryOutlined sx={{ fontSize: 20 }} />}
               >
@@ -183,7 +207,9 @@ export const Sidenav = () => {
                 {/* Classes */}
                 <SubMenu
                   open={openSubMenu2 === "class"}
-                  onOpenChange={() => handleSubMenu2Toggle("class")}
+                  onClick={() =>
+                    handleSubMenu2Toggle("class", "/dashboard/admin/allclasses")
+                  }
                   label="Classes"
                   icon={<ClassOutlined sx={{ fontSize: 20 }} />}
                 >
@@ -207,7 +233,12 @@ export const Sidenav = () => {
                 {/* Subjects */}
                 <SubMenu
                   open={openSubMenu2 === "subject"}
-                  onOpenChange={() => handleSubMenu2Toggle("subject")}
+                  onClick={() =>
+                    handleSubMenu2Toggle(
+                      "subject",
+                      "/dashboard/admin/allsubject",
+                    )
+                  }
                   label="Subjects"
                   icon={<SubjectIcon sx={{ fontSize: 20 }} />}
                 >
@@ -231,7 +262,12 @@ export const Sidenav = () => {
                 {/* Courses */}
                 <SubMenu
                   open={openSubMenu2 === "course"}
-                  onOpenChange={() => handleSubMenu2Toggle("course")}
+                  onClick={() =>
+                    handleSubMenu2Toggle(
+                      "course",
+                      "/dashboard/admin/assignedcourses",
+                    )
+                  }
                   label="Courses"
                   icon={<LibraryBooksOutlined sx={{ fontSize: 20 }} />}
                 >
@@ -257,7 +293,12 @@ export const Sidenav = () => {
                 {/* Enrollments */}
                 <SubMenu
                   open={openSubMenu2 === "classassign"}
-                  onOpenChange={() => handleSubMenu2Toggle("classassign")}
+                  onClick={() =>
+                    handleSubMenu2Toggle(
+                      "classassign",
+                      "/dashboard/admin/assignedclass",
+                    )
+                  }
                   label="Enrollments"
                   icon={<AppRegistrationOutlined sx={{ fontSize: 20 }} />}
                 >
@@ -284,7 +325,7 @@ export const Sidenav = () => {
               {/* EXAMS */}
               <SubMenu
                 open={openSubMenu === "exam"}
-                onOpenChange={() => handleSubMenuToggle("exam")}
+                onClick={() => handleSubMenuToggle("exam", "/dashboard/exam")}
                 label="Exam Record"
                 icon={<QuizOutlined sx={{ fontSize: 20 }} />}
               >
@@ -375,7 +416,9 @@ export const Sidenav = () => {
 
               <SubMenu
                 open={openSubMenu === "books"}
-                onOpenChange={() => handleSubMenuToggle("books")}
+                onClick={() =>
+                  handleSubMenuToggle("books", "/dashboard/teacher/allbooks")
+                }
                 label="Books"
                 icon={<MenuBookOutlined sx={{ fontSize: 20 }} />}
               >
@@ -400,7 +443,12 @@ export const Sidenav = () => {
 
               <SubMenu
                 open={openSubMenu === "attendance"}
-                onOpenChange={() => handleSubMenuToggle("attendance")}
+                onClick={() =>
+                  handleSubMenuToggle(
+                    "attendance",
+                    "/dashboard/teacher/attendance",
+                  )
+                }
                 label="Attendance"
                 icon={<FactCheckOutlined sx={{ fontSize: 20 }} />}
               >
@@ -425,7 +473,9 @@ export const Sidenav = () => {
 
               <SubMenu
                 open={openSubMenu === "grading"}
-                onOpenChange={() => handleSubMenuToggle("grading")}
+                onClick={() =>
+                  handleSubMenuToggle("grading", "/dashboard/teacher/grading")
+                }
                 label="Grading"
                 icon={<RuleOutlined sx={{ fontSize: 20 }} />}
               >
@@ -450,7 +500,12 @@ export const Sidenav = () => {
 
               <SubMenu
                 open={openSubMenu === "assignment"}
-                onOpenChange={() => handleSubMenuToggle("assignment")}
+                onClick={() =>
+                  handleSubMenuToggle(
+                    "assignment",
+                    "/dashboard/teacher/assignment",
+                  )
+                }
                 label="Assignment"
                 icon={<AssessmentSharp sx={{ fontSize: 20 }} />}
               >
@@ -496,7 +551,9 @@ export const Sidenav = () => {
 
               <SubMenu
                 open={openSubMenu === "library"}
-                onOpenChange={() => handleSubMenuToggle("library")}
+                onClick={() =>
+                  handleSubMenuToggle("library", "/dashboard/library/addbook")
+                }
                 label="Library"
                 icon={<LibraryBooksOutlined sx={{ fontSize: 20 }} />}
               >

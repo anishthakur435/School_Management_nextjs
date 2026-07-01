@@ -90,7 +90,8 @@ export default function FeeStructurePage() {
   ];
 
   return (
-    <Container maxWidth="lg" className="mt-8 px-4 pb-12">
+    
+    <Container maxWidth="false" className="mt-8 px-4 pb-12">
       <Box className="mb-8 p-6 border-2 border-[#eff6ff]/90 rounded-2xl bg-white shadow-sm">
         <Typography variant="h6" className="font-semibold mb-4 text-gray-800">
           Create Fee Structure

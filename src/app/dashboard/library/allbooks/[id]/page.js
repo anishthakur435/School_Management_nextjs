@@ -51,14 +51,14 @@ export default function ViewBookPage() {
 
   if (!findBook) {
     return (
-      <Container maxWidth="lg" className="mt-6 mb-12">
+      <Container maxWidth="false" className="mt-6 mb-12">
         <Typography variant="h5">Book not found</Typography>
       </Container>
     );
   }
   return (
     <>
-      <Container maxWidth="lg" className="mt-6 mb-12 gap-5 grid ">
+      <Container maxWidth="false" className="mt-6 mb-12 gap-5 grid ">
         <Card>
           <CardContent>
             <Box className="flex flex-col lg:flex-row lg:items-center gap-6">

@@ -164,7 +164,7 @@ export default function LibraryRequests() {
 
   return (
     <>
-      <Container maxWidth="lg" className="mt-6 mb-12 gap-5 grid ">
+      <Container maxWidth="false" className="mt-6 mb-12 gap-5 grid ">
         <Box className="p-6">
           <Typography variant="h4" className="mb-4 font-bold">
             Library Book Requests

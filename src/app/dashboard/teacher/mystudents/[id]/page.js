@@ -163,7 +163,7 @@ export default function StudentDetails() {
 
   if (session?.user?.role?.toUpperCase() === "TEACHER") {
     return (
-      <Container maxWidth="lg" className="mt-6 mb-12 gap-5 grid ">
+      <Container maxWidth="false" className="mt-6 mb-12 gap-5 grid ">
         <Box className=" flex flex-row justify-between">
           <Typography
             variant="h4"

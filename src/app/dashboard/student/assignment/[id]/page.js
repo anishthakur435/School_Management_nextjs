@@ -116,7 +116,7 @@ export default function StudentAssignmentSubmit() {
   }
 
   return (
-    <Container maxWidth="md" className="mt-8 px-4 pb-12 ">
+    <Container maxWidth="false" className="mt-8 px-4 pb-12 ">
       <Box className="p-6 rounded-2xl border-2 border-[#eff6ff]/90 ">
         <Box className="justify-between flex flex-row ">
           <Typography

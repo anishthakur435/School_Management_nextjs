@@ -287,8 +287,8 @@ function AllUsersContent() {
 
   return (
     <>
-      <Suspense></Suspense>
       <Container
+      maxWidth="false"
         elevation={3}
         className="rounded-2xl p-4 h-full flex flex-col w-full"
       >

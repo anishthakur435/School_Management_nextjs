@@ -104,7 +104,7 @@ export default function AdminDashboard() {
 
   return (
     <>
-      <Container maxWidth="lg" className="mt-8 px-4 pb-12">
+      <Container maxWidth="false" className="mt-8 px-4 pb-12">
         <Box className="mb-8 border-b border-gray-100 pb-4 text-center ">
           <Typography
             variant="h4"

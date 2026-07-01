@@ -182,7 +182,7 @@ export default function StudentDashboard() {
 
   return (
     <>
-      <Container maxWidth="lg" className="mt-8 px-4 pb-12">
+      <Container maxWidth="false" className="mt-8 px-4 pb-12">
         {/*  */}
         {isFeePending && (
           <Box className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex flex-row justify-between items-center">

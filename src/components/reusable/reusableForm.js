@@ -19,13 +19,12 @@ export default function FormField({
         return (
           <TextField
             {...field}
-            {...rest}
             slotProps={slotProps}
             label={label}
             type={type}
             error={!!error}
             helperText={error ? error.message : ""}
-            
+            {...rest}
           />
         );
       }}

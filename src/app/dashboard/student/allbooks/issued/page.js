@@ -71,7 +71,7 @@ export default function IssuedBooks() {
   ];
 
   return (
-    <Container maxWidth="lg" className="mt-8 mb-12">
+    <Container maxWidth="false" className="mt-8 mb-12">
       <Card
         elevation={0}
         className="border border-blue-100 rounded-2xl overflow-hidden shadow-sm"
