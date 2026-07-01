@@ -142,7 +142,6 @@ export default function AddUser() {
         ...safeData,
         password: data.password,
         confirmpassword: data.confirmpassword,
-
         ...(isStudent
           ? {
               feeType: safeData.feeType,
@@ -297,16 +296,14 @@ export default function AddUser() {
             control={control}
             placeholder="Enter password"
             fullWidth
-            slotProps={{
-              input: {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={togglePasswordVisibility}>
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              },
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={togglePasswordVisibility}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
             }}
           />
 
@@ -317,16 +314,14 @@ export default function AddUser() {
             control={control}
             placeholder="Confirm password"
             fullWidth
-            slotProps={{
-              input: {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={toggleConfirmPasswordVisibility}>
-                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              },
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={toggleConfirmPasswordVisibility}>
+                    {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
             }}
           />
         </div>
@@ -372,19 +367,6 @@ export default function AddUser() {
               },
             ]}
           />
-          {/* <FormField
-            name="gender"
-            label="Gender"
-            select
-            control={control}
-            fullWidth
-          >
-            <MenuItem value="Male">Male</MenuItem>
-
-            <MenuItem value="Female">Female</MenuItem>
-
-            <MenuItem value="Other">Other</MenuItem>
-          </FormField> */}
 
           <FormSelect
             name="role"
@@ -397,21 +379,6 @@ export default function AddUser() {
               { value: "Parents", label: "Parents" },
             ]}
           />
-
-          {/* <FormField
-            name="role"
-            control={control}
-            label="Select Role"
-            select
-            fullWidth
-          >
-            <MenuItem value="Student">Student</MenuItem>
-
-            <MenuItem value="Teacher">Teacher</MenuItem>
-
-            <MenuItem value="Admin">Admin</MenuItem>
-            <MenuItem value="Parents">Parents</MenuItem>
-          </FormField> */}
         </div>
         {selectedRole?.toUpperCase() === "STUDENT" ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -424,24 +391,6 @@ export default function AddUser() {
                 label: `${parentData.name} (${parentData.email})`,
               }))}
             />
-            {/* <FormField
-              name="parentId"
-              label="Select Parent (Optional)"
-              select
-              control={control}
-            >
-              {parents?.length > 0 ? (
-                parents.map((parentData) => (
-                  <MenuItem key={parentData.id} value={String(parentData.id)}>
-                    {parentData.name} ({parentData.email})
-                  </MenuItem>
-                ))
-              ) : (
-                <MenuItem value="none" disabled>
-                  No parents available
-                </MenuItem>
-              )}
-            </FormField> */}
 
             <FormSelect
               name="feeType"
@@ -453,21 +402,6 @@ export default function AddUser() {
                 { label: "Annual", value: "Annual" },
               ]}
             />
-
-            {/* <FormField
-              name="feeType"
-              label="Select Fee Type"
-              select
-              control={control}
-              fullWidth
-            >
-              <MenuItem value="" disabled>
-                Select
-              </MenuItem>
-              <MenuItem value="Monthly">Monthly</MenuItem>
-              <MenuItem value="Half-Yearly">Half-Yearly</MenuItem>
-              <MenuItem value="Annual">Annual</MenuItem>
-            </FormField> */}
           </div>
         ) : null}
         {/* Address */}
