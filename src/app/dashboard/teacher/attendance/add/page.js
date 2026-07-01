@@ -71,7 +71,7 @@ export default function AddAttendanceRemarks() {
 
       const studentRecords = studentsInSelectedClass.map((student) => ({
         studentName: student.student,
-        status: data[`status_${student.student}`] || "Present",
+        status: data[`status_${student.student}`] || "Absent", // Default to Absent if not selected
       }));
 
       const presentStudents = studentRecords
@@ -179,7 +179,7 @@ export default function AddAttendanceRemarks() {
 
                       <Box className="w-40">
                         <FormSelect
-                          name="status"
+                          name={`status_${student.student}`}
                           label="Status"
                           control={control}
                           options={[
@@ -188,18 +188,6 @@ export default function AddAttendanceRemarks() {
                             { label: "Late", value: "Late" },
                           ]}
                         />
-                        
-                        {/* <FormField
-                          name="classname"
-                          label="Choose Class"
-                          control={control}
-                        >
-                          <MenuItem value="Present">Present</MenuItem>
-
-                          <MenuItem value="Absent">Absent</MenuItem>
-
-                          <MenuItem value="Late">Late</MenuItem>
-                        </FormField> */}
                       </Box>
                     </Box>
                   ))}
