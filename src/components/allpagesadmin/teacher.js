@@ -1,6 +1,7 @@
 "use client";
 import { toastMessage } from "@/components/reusable/reusableToast";
 import {
+
   Box,
   Button,
   Chip,
@@ -214,7 +215,7 @@ export default function AllTeachers() {
   ];
   return (
     <>
-      <Container maxWidth="false" elevation={3} className="rounded-2xl p-4 h-full flex flex-col ">
+      <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col ">
         <Box className="justify-between flex flex-row">
           <Typography variant="h6" className="mb-4 font-semibold text-gray-700">
             Teachers

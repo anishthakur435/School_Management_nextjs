@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Box, Typography, Chip, Paper, Button } from "@mui/material";
+import { Box, Typography, Chip, Paper, Button, Container } from "@mui/material";
 import { useSession } from "next-auth/react";
 import useLocalStorage from "use-local-storage";
 import ReusableTable from "@/components/reusable/ReusableDataTable";
@@ -104,6 +104,7 @@ export default function ViewAssignments() {
 
   return (
     <>
+<Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
       <Box className="flex flex-row items-center justify-between p-2">
         <Typography variant="h6" className="font-semibold text-gray-700 px-2">
           View Assignments
@@ -113,70 +114,8 @@ export default function ViewAssignments() {
       <Box className="w-full">
         <ReusableTable columns={assignmentColumns} data={myAssignments} />
       </Box>
+      </Container>
     </>
   );
 }
 
-{
-  /* <Box className="flex gap-3">
-          <Typography variant="caption" className="self-center text-gray-500">
-            Filter:
-          </Typography>
-
-          <FormSelect
-            name="classname"
-            label="Filter by Class"
-            control={control}
-            onChange={handleClassChange}
-            options={[
-              { value: "all", label: "All Classes" },
-              ...uniqueClasses.map((classname) => ({
-                label: classname,
-                value: classname,
-              })),
-            ]}
-          />
-
-          <FormField
-            fullWidth
-            name="searchQuery"
-            label="Search Title or Subject"
-            onChange={handleSearchChange}
-            control={control}
-          />
-        </Box> */
-}
-//   const { control, watch, setValue } = useForm({
-//     mode: "onChange",
-//     defaultValues: {
-//       classname: "all",
-//       searchQuery: "",
-//     },
-//   });
-
-//   const selectedClass = watch("classname");
-//   const searchQuery = watch("searchQuery");
-
-//   const uniqueClasses = Array.from(
-//     new Set(myAssignments.map((a) => a.classname)),
-//   );
-//   const filteredAssignments = myAssignments.filter((assignment) => {
-//     const matchClass =
-//       !selectedClass ||
-//       selectedClass === "all" ||
-//       String(assignment.classname) === String(selectedClass);
-//     const matchSearch =
-//       !searchQuery ||
-//       assignment.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//       assignment.subjectname.toLowerCase().includes(searchQuery.toLowerCase());
-
-//     return matchClass && matchSearch;
-//   });
-
-//   const handleClassChange = (event) => {
-//     setValue("classname", event.target.value);
-//   };
-
-//   const handleSearchChange = (event) => {
-//     setValue("searchQuery", event.target.value);
-//   };

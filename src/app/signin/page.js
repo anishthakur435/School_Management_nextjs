@@ -167,6 +167,7 @@ export default function SignInPage() {
   }
 
   return (
+    
     <Box
       className="min-h-screen flex 
       bg-gradient-to-l from-violet-100
@@ -178,7 +179,7 @@ export default function SignInPage() {
       ></Box>
 
       <Box className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 ">
-        <Box className="w-full">
+        <Box className="w-full max-w-md">
           <Box className="text-center mb-8">
             <Typography
               variant="h4"

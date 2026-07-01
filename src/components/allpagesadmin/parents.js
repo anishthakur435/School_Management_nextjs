@@ -227,7 +227,7 @@ export default function ParentsTablePage() {
   ];
   return (
     <>
-      <Paper elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
+      <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
         <Box className="justify-between flex flex-row ">
           <Typography variant="h6" className="mb-4 font-semibold text-gray-700">
             Parents
@@ -258,7 +258,7 @@ export default function ParentsTablePage() {
         <Typography variant="h5" className="p-5 m-5 text-center">
           Total Teachers: {finalFilteredParents.length}
         </Typography>
-      </Paper>
+      </Container>
     </>
   );
 }

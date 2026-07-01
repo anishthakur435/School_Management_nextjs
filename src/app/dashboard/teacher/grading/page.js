@@ -11,6 +11,7 @@ import {
   FormControl,
   Select,
   MenuItem,
+  Container,
 } from "@mui/material";
 import useLocalStorage from "use-local-storage";
 import { useSession } from "next-auth/react";
@@ -129,11 +130,14 @@ export default function StudentGrading() {
   ];
 
   return (
-    <Card elevation={3} className="rounded-3xl shadow-xl w-full h-full">
-      <CardContent className="p-6">
-        <Box className="flex flex-row justify-between">
-          <Typography variant="h6" className="mb-4 font-semibold text-gray-700 px-2">
-            Recorded Grade Reports
+    <Container
+      maxWidth="xl"
+      className="rounded-3xl shadow-xl w-full h-full p-5 flex flex-col"
+    >
+        <Box className="p-6">
+          <Box className="flex flex-row justify-between">
+            <Typography variant="h6" className="mb-4 font-semibold text-gray-700 px-2 ">
+              Recorded Grade Reports
           </Typography>
           <Box className="flex flex-row gap-2.5 justify-end">
             <Typography variant="caption" className="self-center">
@@ -178,7 +182,8 @@ export default function StudentGrading() {
         <Divider className="" />
         <ReusableTable columns={StudentGradeTableColumns} data={finalGrades} />
 
-      </CardContent>
-    </Card>
+      </Box>
+
+    </Container>
   );
 }

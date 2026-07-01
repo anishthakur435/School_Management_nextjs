@@ -95,7 +95,7 @@ export default function TeacherDetails() {
 
   if (session?.user?.role?.toUpperCase() === "ADMIN") {
     return (
-      <Container maxWidth="false" className="mt-6 mb-12 gap-5 grid ">
+      <Container maxWidth="xl" className="mt-6 mb-12 gap-5 grid ">
         <Box className=" flex flex-row justify-between">
           <Typography
             variant="h4"

@@ -9,6 +9,7 @@ import {
   Button,
   Tooltip,
   IconButton,
+  Container,
 } from "@mui/material";
 import { useSession } from "next-auth/react";
 import useLocalStorage from "use-local-storage";
@@ -122,6 +123,7 @@ export default function ViewAssignments() {
 
   return (
     <>
+    <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
       <Box className="flex flex-row items-center justify-between p-2">
         <Typography variant="h6" className="font-semibold text-gray-700 px-2">
           View Assignments
@@ -131,6 +133,7 @@ export default function ViewAssignments() {
       <Box className="w-full">
         <ReusableTable columns={assignmentColumns} data={myAssignments} />
       </Box>
+    </Container>
     </>
   );
 }

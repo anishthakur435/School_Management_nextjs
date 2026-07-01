@@ -4,7 +4,7 @@ import React from "react";
 import FormField from "@/components/reusable/reusableForm";
 import { toastMessage } from "@/components/reusable/reusableToast";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Typography, Grid, MenuItem, Button, Box } from "@mui/material";
+import { Typography,Container, Grid, MenuItem, Button, Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import useLocalStorage from "use-local-storage";
 import { useSession } from "next-auth/react";
@@ -108,12 +108,12 @@ export default function GradesRemarks() {
   };
   return (
     <>
-      <div className=" justify-center items-start p-6 w-full">
-        <div className="text-center mb-2">
+      <Container maxWidth="xl" className="justify-center items-start p-6 w-full">
+        <Box className="text-center mb-2">
           <Typography variant="h5" className="font-bold text-gray-800">
             Submit Student Grade
           </Typography>
-        </div>
+        </Box>
 
         <form
           onSubmit={handleSubmit(submitGrades)}
@@ -282,7 +282,7 @@ export default function GradesRemarks() {
             </Button>
           </Box>
         </form>
-      </div>
+      </Container>
     </>
   );
 }

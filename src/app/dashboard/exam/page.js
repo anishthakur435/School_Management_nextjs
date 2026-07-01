@@ -2,7 +2,7 @@
 
 import React from "react";
 import ReusableTable from "@/components/reusable/ReusableDataTable";
-import { Box, Button, Chip, Typography } from "@mui/material";
+import { Box, Button, Chip, Container, Typography } from "@mui/material";
 import useLocalStorage from "use-local-storage";
 import { toastMessage } from "@/components/reusable/reusableToast";
 
@@ -61,12 +61,17 @@ export default function ExamPage() {
 
   return (
     <>
+    <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
       <Box className="justify-between flex flex-row  bg-[#eff6ff] ">
         <Typography variant="h6" className="mb-4 font-semibold  p-3  ">
           Exam Schedule
         </Typography>
       </Box>
       <ReusableTable data={examSchedule} columns={scheduleColumn} />
+      <Typography variant="h5" className="p-5 m-5 text-center">
+        Total Exam Schedule: {examSchedule.length}
+      </Typography>
+      </Container>
     </>
   );
 }

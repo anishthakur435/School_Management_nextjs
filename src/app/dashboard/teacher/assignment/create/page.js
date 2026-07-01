@@ -147,7 +147,7 @@ export default function TeacherAssignmentPage() {
   }));
 
   return (
-    <Container maxWidth="false" className="mt-8 px-4 pb-12">
+    <Container maxWidth="xl" className="mt-8 px-4 pb-12">
       <Paper elevation={3} className="p-6 rounded-2xl">
         <Box className="mb-6 border-b border-gray-200 pb-4">
           <Typography variant="h5" className="font-bold text-gray-800">

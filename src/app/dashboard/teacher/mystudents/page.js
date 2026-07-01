@@ -1,16 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import {
-  Box,
-  MenuItem,
-  Typography,
-  Chip,
-  Paper,
-  FormControl,
-  Select,
-  Divider,
-} from "@mui/material";
+import { Box, Container, Typography, Chip } from "@mui/material";
 
 import { useSession } from "next-auth/react";
 import useLocalStorage from "use-local-storage";
@@ -94,7 +85,11 @@ export default function MyStudents() {
 
   return (
     <>
-      <Paper elevation={2} className="p-3 rounded-2xl h-full">
+      <Container
+        maxWidth="xl"
+        elevation={3}
+        className="rounded-2xl p-4 h-full flex flex-col"
+      >
         <Box className="flex flex-row items-center justify-between mb-3">
           <Typography
             variant="h6"
@@ -136,7 +131,7 @@ export default function MyStudents() {
               </Select>
             </FormControl> */}
             <FormField
-            fullWidth
+              fullWidth
               name="student"
               label="Filter by Name"
               onChange={handleNameChange}
@@ -151,7 +146,7 @@ export default function MyStudents() {
           />
         </Box>
          
-      </Paper>
+      </Container>
     </>
   );
 }

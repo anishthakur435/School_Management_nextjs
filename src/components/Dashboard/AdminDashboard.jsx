@@ -104,7 +104,7 @@ export default function AdminDashboard() {
 
   return (
     <>
-      <Container maxWidth="false" className="mt-8 px-4 pb-12">
+      <Container maxWidth="xl" className="mt-8 px-4 pb-12">
         <Box className="mb-8 border-b border-gray-100 pb-4 text-center ">
           <Typography
             variant="h4"
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
           </Typography>
         </Box>
 
-        <Grid container spacing={3} className="mb-8">
+        <Grid container spacing={3} className="mb-8 w-full">
           {[
             {
               title: "Total User",
@@ -163,7 +163,7 @@ export default function AdminDashboard() {
               path: "/dashboard/admin/allclasses",
             },
           ].map((item, index) => (
-            <Grid xs={12} sm={6} md={3} key={index}>
+            <Grid xs={12} sm={6} md={4} key={index}>
               <Box
                 onClick={() => router.push(item.path)}
                 sx={{

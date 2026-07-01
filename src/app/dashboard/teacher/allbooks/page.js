@@ -7,6 +7,7 @@ import {
   CardActions,
   CardContent,
   Chip,
+  Container,
   Grid,
   Typography,
 } from "@mui/material";
@@ -104,12 +105,19 @@ export default function RequestBook() {
     toastMessage("Book request submitted successfully", "success");
   };
 
+
   return (
-    <Box className="p-6 w-full">
-      <Typography
-        variant="h5"
-        component="h2"
-        className="mb-8 font-bold text-gray-800"
+    
+    <Container
+      maxWidth="xl"
+      elevation={3}
+      className="rounded-2xl p-4 h-full flex flex-col"
+    >
+      <Box className="p-6 w-full">
+        <Typography
+          variant="h5"
+          component="h2"
+          className="mb-8 font-bold text-gray-800"
       >
         Library Books
       </Typography>
@@ -201,5 +209,6 @@ export default function RequestBook() {
         })}
       </Grid>
     </Box>
+    </Container>
   );
 }

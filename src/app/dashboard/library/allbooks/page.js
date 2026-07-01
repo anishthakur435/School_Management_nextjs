@@ -6,6 +6,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  Container,
   Grid,
   Typography,
 } from "@mui/material";
@@ -53,6 +54,8 @@ export default function RequestBook() {
   };
 
   return (
+    <>
+    <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
     <Box className="p-6 w-full">
       <Typography
         variant="h5"
@@ -134,5 +137,7 @@ export default function RequestBook() {
         })}
       </Grid>
     </Box>
+    </Container>
+    </>
   );
 }

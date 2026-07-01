@@ -131,7 +131,7 @@ export default function LibraryDashboard() {
 
   return (
     <>
-      <Container maxWidth="false" className="mt-6 mb-12 gap-5 grid ">
+      <Container maxWidth="xl" className="mt-6 mb-12 gap-5 grid ">
         {/* librarian card */}
         <Box className="rounded-2xl border border-slate-200 overflow-hidden">
           <Box className="px-8  flex-col flex justify-between ">

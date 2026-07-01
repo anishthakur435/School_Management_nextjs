@@ -3,6 +3,7 @@ import { toastMessage } from "@/components/reusable/reusableToast";
 import {
   Box,
   Button,
+  Container,
   FormControl,
   IconButton,
   MenuItem,
@@ -132,7 +133,11 @@ export default function AllClassesPage() {
 
   return (
     <>
-      <Paper elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
+      <Container
+        maxWidth="xl"
+        elevation={3}
+        className="rounded-2xl p-4 h-full flex flex-col"
+      >
         <Box className="flex flex-row justify-between">
           <Typography variant="h6" className="mb-4 font-semibold text-gray-700">
             Classes
@@ -192,7 +197,7 @@ export default function AllClassesPage() {
         <Typography variant="h5" className="p-5 m-5 text-center">
           Total Classes: {finalClassDetails.length}
         </Typography>
-      </Paper>
+      </Container>
     </>
   );
 }

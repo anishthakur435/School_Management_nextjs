@@ -5,6 +5,7 @@ import FormField from "@/components/reusable/reusableForm";
 import { toastMessage } from "@/components/reusable/reusableToast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
+  Container,
   Box,
   Button,
   Card,
@@ -104,8 +105,8 @@ export default function AddAttendanceRemarks() {
 
   return (
     <>
-      <Card elevation={4} className="p-4 h-full">
-        <CardContent className="p-6 md:p-8">
+      < Container className="p-4 h-full">
+        <Box   className="p-6 md:p-8">
           <Box className="flex items-center justify-between mb-6">
             <Typography
               variant="h5"
@@ -128,18 +129,7 @@ export default function AddAttendanceRemarks() {
                 label: classname,
               }))}
             />
-            {/* <FormField
-              name="classname"
-              label="Choose Class"
-              control={control}
-              select
-            >
-              {uniqueClasses.map((className) => (
-                <MenuItem key={className} value={className}>
-                  {className}
-                </MenuItem>
-              ))}
-            </FormField> */}
+            
             <FormField name="date" type="date" control={control} />
             {/*  */}
 
@@ -238,8 +228,8 @@ export default function AddAttendanceRemarks() {
               </Button>
             </Box>
           </form>
-        </CardContent>
-      </Card>
+        </Box>
+      </Container>
     </>
   );
 }

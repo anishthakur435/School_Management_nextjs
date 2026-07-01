@@ -288,7 +288,7 @@ function AllUsersContent() {
   return (
     <>
       <Container
-      maxWidth="false"
+      maxWidth="lg"
         elevation={3}
         className="rounded-2xl p-4 h-full flex flex-col w-full"
       >

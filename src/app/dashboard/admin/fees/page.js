@@ -64,7 +64,7 @@ export default function FeesPage() {
   ];
 
   return (
-    <Container maxWidth="false" className="mt-8 px-4 pb-12">
+    <Container maxWidth="xl" className="mt-8 px-4 pb-12">
       <Box className="mb-8 flex justify-between items-center">
         <Box>
           <Typography

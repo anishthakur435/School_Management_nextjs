@@ -45,6 +45,7 @@ export default function MyExamSchedule() {
   //   ////
   return (
     <>
+    <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
       <Grid
         size={6}
         className=" border-2 border-[#eff6ff]/90 rounded-2xl overflow-auto"
@@ -56,6 +57,7 @@ export default function MyExamSchedule() {
         </Box>
         <ReusableTable data={myExam} columns={scheduleColumn} />
       </Grid>
+    </Container>
     </>
   );
 }

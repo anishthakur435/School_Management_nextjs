@@ -83,7 +83,7 @@ export default function IssuedBooks() {
 
   return (
     <>
-      <Container maxWidth="false" className="mt-6 mb-12 gap-5 grid ">
+      <Container maxWidth="xl" className="mt-6 mb-12 gap-5 grid ">
         <Grid
           size={6}
           className=" border-2 border-[#eff6ff]/90 rounded-2xl overflow-auto"

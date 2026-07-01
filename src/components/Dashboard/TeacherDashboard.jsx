@@ -92,7 +92,7 @@ export default function TeacherDashboard() {
   ];
 
   return (
-    <Container maxWidth="false" className="mt-8 px-4 pb-12">
+    <Container maxWidth="xl" className="mt-8 px-4 pb-12">
       <Box className="mb-8 border-b border-gray-200 pb-4">
         <Typography variant="h5" className="font-bold ">
           Welcome, {findTeacher?.name || "Teacher"}

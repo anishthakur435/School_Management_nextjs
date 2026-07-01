@@ -8,6 +8,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 import {
+  Container,
+  Box,  
   Button,
   IconButton,
   InputAdornment,
@@ -238,17 +240,20 @@ export default function AddUser() {
   }, [selectedRole, setValue]);
 
   return (
-    <div className=" justify-center items-start p-6 w-full h-full">
-      <div className="text-center   gap-3 mb-2 justify-center items-center">
+    <Container
+      maxWidth="lg"
+      className=" justify-center items-start p-6 w-full h-full"
+    >
+      <Box className="text-center   gap-3 mb-2 justify-center items-center">
         <Typography variant="h5" className="font-bold text-gray-800">
           Create New User
         </Typography>
-      </div>
+      </Box>
       <form
         onSubmit={handleSubmit(addUser)}
         className="flex flex-col gap-4 w-full"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <FormField
             name="name"
             label=" User Name"
@@ -265,9 +270,9 @@ export default function AddUser() {
             placeholder="Enter email address"
             fullWidth
           />
-        </div>
+        </Box>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <FormField
             name="firstname"
             label="First Name"
@@ -285,10 +290,10 @@ export default function AddUser() {
             placeholder="Enter last name"
             fullWidth
           />
-        </div>
+        </Box>
 
         {/* Passwords */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <FormField
             name="password"
             label="Password"
@@ -324,9 +329,9 @@ export default function AddUser() {
               ),
             }}
           />
-        </div>
+        </Box>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <FormField
             name="contact"
             label="Contact Number"
@@ -344,9 +349,9 @@ export default function AddUser() {
             placeholder="Enter age"
             fullWidth
           />
-        </div>
+        </Box>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <FormRadio
             name="gender"
             label="Gender"
@@ -379,9 +384,9 @@ export default function AddUser() {
               { value: "Parents", label: "Parents" },
             ]}
           />
-        </div>
+        </Box>
         {selectedRole?.toUpperCase() === "STUDENT" ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <FormSelect
               name="parentId"
               control={control}
@@ -402,10 +407,10 @@ export default function AddUser() {
                 { label: "Annual", value: "Annual" },
               ]}
             />
-          </div>
+          </Box>
         ) : null}
         {/* Address */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <FormField
             name="address"
             label="Address"
@@ -422,8 +427,8 @@ export default function AddUser() {
             placeholder="Enter city"
             fullWidth
           />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        </Box>
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <FormField
             name="state"
             label="State"
@@ -440,7 +445,7 @@ export default function AddUser() {
             placeholder="Enter postal code"
             fullWidth
           />
-        </div>
+        </Box>
 
         <Button variant="contained" color="primary" type="submit" size="large">
           Add User Account
@@ -454,6 +459,6 @@ export default function AddUser() {
           Cancel
         </Button>
       </form>
-    </div>
+    </Container>
   );
 }

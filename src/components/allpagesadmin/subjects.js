@@ -1,8 +1,10 @@
 "use client";
 import { toastMessage } from "@/components/reusable/reusableToast";
 import {
+
   Box,
   Button,
+  Container,
   IconButton,
   Paper,
   Tooltip,
@@ -83,7 +85,7 @@ export default function AllSubjects() {
   ];
   return (
     <>
-      <Paper elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
+      <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
         <Box className="flex flex-row justify-between">
           <Typography variant="h6" className="mb-4 font-semibold text-gray-700">
             Subjects
@@ -101,7 +103,7 @@ export default function AllSubjects() {
           {" "}
           Total Subjects: {subject.length}
         </Typography>
-      </Paper>
+      </Container>
     </>
   );
 }

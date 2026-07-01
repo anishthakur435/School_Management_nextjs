@@ -1,6 +1,7 @@
 "use client";
 import { toastMessage } from "@/components/reusable/reusableToast";
 import {
+  Container,
   Box,
   Button,
   FormControl,
@@ -111,7 +112,7 @@ export default function AssignedCoursePage() {
 
   return (
     <>
-      <Paper elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
+      <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
         <Box className="flex flex-row justify-between">
           <Typography variant="h5" className="mb-4 font-semibold text-gray-700">
             Courses
@@ -174,7 +175,7 @@ export default function AssignedCoursePage() {
         <Typography variant="h5" className="p-5 m-5 text-center">
           Assigned Courses: {finalAssignedCourses.length}
         </Typography>
-      </Paper>
+      </Container>
     </>
   );
 }

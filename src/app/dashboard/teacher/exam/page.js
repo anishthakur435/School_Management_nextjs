@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Grid, Typography, Chip } from "@mui/material";
+import { Box, Grid, Typography, Chip, Container } from "@mui/material";
 import { useSession } from "next-auth/react";
 import ReusableTable from "@/components/reusable/ReusableDataTable";
 import useLocalStorage from "use-local-storage";
@@ -56,11 +56,13 @@ export default function ExamScheduleTeacher() {
   ];
 
   return (
+    <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
+
     <Grid
       size={6}
-      className="border-2 border-[#eff6ff]/90 rounded-2xl overflow-auto"
+      className="border-2 border-[#eff6ff]/90 rounded-2xl overflow-auto "
     >
-      <Typography className="justify-center text-center " variant="h4" >
+      <Typography className="justify-center text-center p-3 " variant="h4" >
         Exam Schedule
       </Typography>
       <Box className="justify-between flex flex-row bg-[#eff6ff]">
@@ -80,5 +82,6 @@ export default function ExamScheduleTeacher() {
 
       <ReusableTable data={mySubjectExam} columns={scheduleColumn} />
     </Grid>
+    </Container>
   );
 }

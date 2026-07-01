@@ -2,6 +2,7 @@
 import {
   Box,
   Button,
+  Container,
   FormControl,
   Grid,
   MenuItem,
@@ -81,7 +82,7 @@ export default function ClassDetailsPage() {
 
   return (
     <>
-      <Paper elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
+      <Container maxWidth="xl" elevation={3} className="rounded-2xl p-4 h-full flex flex-col">
         <Box className="flex flex-row justify-between">
           <Typography variant="h5" className="mb-4 font-semibold text-gray-700">
             Students
@@ -153,7 +154,7 @@ export default function ClassDetailsPage() {
           {" "}
           Student in Classes :{finalClassStudents.length}
         </Typography>
-      </Paper>
+      </Container>
     </>
   );
 }
