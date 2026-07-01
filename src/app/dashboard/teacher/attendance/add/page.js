@@ -23,7 +23,7 @@ import { useRouter } from "next/navigation";
 import FormSelect from "@/components/reusable/ResuableSelect";
 
 const schema = Yup.object().shape({
-  studentClass: Yup.string().required("Class is required"),
+  classname: Yup.string().required("Class is required"),
   date: Yup.string().required("Date is required"),
 });
 
@@ -49,10 +49,10 @@ export default function AddAttendanceRemarks() {
   const { control, handleSubmit, watch, reset } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
-    defaultValues: { studentClass: "", date: "" },
+    defaultValues: { classname: "", date: "" },
   });
 
-  const selectedClass = watch("studentClass");
+  const selectedClass = watch("classname");
 
   const studentsInSelectedClass = myStudents.filter(
     (student) => student.classname === selectedClass,
@@ -128,7 +128,18 @@ export default function AddAttendanceRemarks() {
                 label: classname,
               }))}
             />
-        
+            {/* <FormField
+              name="classname"
+              label="Choose Class"
+              control={control}
+              select
+            >
+              {uniqueClasses.map((className) => (
+                <MenuItem key={className} value={className}>
+                  {className}
+                </MenuItem>
+              ))}
+            </FormField> */}
             <FormField name="date" type="date" control={control} />
             {/*  */}
 
@@ -168,7 +179,7 @@ export default function AddAttendanceRemarks() {
 
                       <Box className="w-40">
                         <FormSelect
-                          name="studentClass"
+                          name="status"
                           label="Status"
                           control={control}
                           options={[
@@ -178,6 +189,17 @@ export default function AddAttendanceRemarks() {
                           ]}
                         />
                         
+                        {/* <FormField
+                          name="classname"
+                          label="Choose Class"
+                          control={control}
+                        >
+                          <MenuItem value="Present">Present</MenuItem>
+
+                          <MenuItem value="Absent">Absent</MenuItem>
+
+                          <MenuItem value="Late">Late</MenuItem>
+                        </FormField> */}
                       </Box>
                     </Box>
                   ))}
