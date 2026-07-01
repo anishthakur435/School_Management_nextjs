@@ -141,6 +141,7 @@ export default function AddUser() {
         id: newUserId,
         ...safeData,
         password: data.password,
+        confirmpassword: data.confirmpassword,
 
         ...(isStudent
           ? {
