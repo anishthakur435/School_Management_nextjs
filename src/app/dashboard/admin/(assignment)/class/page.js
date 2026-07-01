@@ -102,6 +102,7 @@ export default function AssignClass() {
 
       toastMessage("Student assigned successfully!", "success");
       reset();
+      router.push("/dashboard/assignclass");
     } catch (error) {
       console.error(error);
       toastMessage("Failed to assign student to class.", "error");
