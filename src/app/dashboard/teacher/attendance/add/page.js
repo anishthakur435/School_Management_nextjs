@@ -23,7 +23,7 @@ import { useRouter } from "next/navigation";
 import FormSelect from "@/components/reusable/ResuableSelect";
 
 const schema = Yup.object().shape({
-  classname: Yup.string().required("Class is required"),
+  studentClass: Yup.string().required("Class is required"),
   date: Yup.string().required("Date is required"),
 });
 
@@ -49,10 +49,10 @@ export default function AddAttendanceRemarks() {
   const { control, handleSubmit, watch, reset } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
-    defaultValues: { classname: "", date: "" },
+    defaultValues: { studentClass: "", date: "" },
   });
 
-  const selectedClass = watch("classname");
+  const selectedClass = watch("studentClass");
 
   const studentsInSelectedClass = myStudents.filter(
     (student) => student.classname === selectedClass,
@@ -128,23 +128,12 @@ export default function AddAttendanceRemarks() {
                 label: classname,
               }))}
             />
-            {/* <FormField
-              name="classname"
-              label="Choose Class"
-              control={control}
-              select
-            >
-              {uniqueClasses.map((className) => (
-                <MenuItem key={className} value={className}>
-                  {className}
-                </MenuItem>
-              ))}
-            </FormField> */}
+        
             <FormField name="date" type="date" control={control} />
             {/*  */}
 
             {/* Student */}
-            {selectedClass && studentsInSelectedClass.length > 0 && (
+            {selectedClass && studentsInSelectedClass?.length > 0 && (
               <Box className="mt-2">
                 <Box className="flex items-center justify-between mb-4">
                   <Typography
@@ -155,14 +144,14 @@ export default function AddAttendanceRemarks() {
                   </Typography>
 
                   <Chip
-                    label={`${studentsInSelectedClass.length}`}
+                    label={`${studentsInSelectedClass?.length}`}
                     color="primary"
                     size="small"
                   />
                 </Box>
 
                 <Box className=" overflow-y-auto pr-1 flex flex-col gap-3">
-                  {studentsInSelectedClass.map((student) => (
+                  {studentsInSelectedClass?.map((student) => (
                     <Box
                       key={student.id}
                       className="flex items-center justify-between p-4 rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-all duration-200"
@@ -179,7 +168,7 @@ export default function AddAttendanceRemarks() {
 
                       <Box className="w-40">
                         <FormSelect
-                          name="classname"
+                          name="studentClass"
                           label="Status"
                           control={control}
                           options={[
@@ -189,17 +178,6 @@ export default function AddAttendanceRemarks() {
                           ]}
                         />
                         
-                        {/* <FormField
-                          name="classname"
-                          label="Choose Class"
-                          control={control}
-                        >
-                          <MenuItem value="Present">Present</MenuItem>
-
-                          <MenuItem value="Absent">Absent</MenuItem>
-
-                          <MenuItem value="Late">Late</MenuItem>
-                        </FormField> */}
                       </Box>
                     </Box>
                   ))}

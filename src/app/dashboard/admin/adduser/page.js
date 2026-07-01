@@ -17,7 +17,7 @@ import {
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useLocalStorage from "use-local-storage";
 import * as Yup from "yup";
@@ -219,8 +219,10 @@ export default function AddUser() {
       setUserData(updatedUserData);
       setParentChildData(updatedParentChildData);
       toastMessage("User added successfully!", "success");
-      reset();
-      router.replace("/dashboard/admin");
+      setTimeout(() => {
+        reset();
+        router.replace("/dashboard/admin");
+      }, 500);
     } catch (error) {
       console.error(error);
       toastMessage("Failed to add user", "error");
