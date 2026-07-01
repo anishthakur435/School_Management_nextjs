@@ -132,7 +132,7 @@ export default function AddUser() {
         data.parentName = null;
       }
 
-      const { password, confirmpassword, ...safeData } = data;
+      const { confirmpassword, ...safeData } = data;
 
       const newUserId = Date.now();
       const isStudent = safeData.role?.toUpperCase() === "STUDENT";
@@ -140,6 +140,7 @@ export default function AddUser() {
       const newUser = {
         id: newUserId,
         ...safeData,
+        password: data.password,
 
         ...(isStudent
           ? {
